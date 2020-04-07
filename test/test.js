@@ -67,6 +67,19 @@ describe("vending machine", () => {
     expect(drink).to.equal(coffee.name);
     // expect();
   });
+
+  it("should return undefined if insufficient balance", () => {
+    // Setup
+    const machine = new VendingMachine();
+
+    // Exercise
+    machine.insertCoin(100);
+    const drink = machine.pressButton("A", 2);
+    // const coffee = { name: "Tully's", price: 250, count: 7 };
+
+    //Assert
+    expect(drink).to.equal(undefined);
+  });
 });
 
 // Hint: do not try to test what is being logged to console, instead think about how to
