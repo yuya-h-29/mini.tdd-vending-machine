@@ -30,15 +30,42 @@ describe("vending machine", () => {
     expect(machine.balance).to.equal(500); // Use an ES6 getter
   });
 
-  it("should print letter to console when row is selected", () => {
+  // it("should print letter to console when row is selected", () => {
+  //   // Setup
+  //   const machine = new VendingMachine();
+
+  //   // Exercise
+  //   const drink = machine.pressButton("A", 2);
+
+  //   // Assert
+  //   expect(drink.name).to.equal("Tully's");
+  // });
+
+  it("should return drink only if sufficient balance and inventory and both row and column is selected", () => {
     // Setup
     const machine = new VendingMachine();
 
     // Exercise
+    machine.insertCoin(500);
     const drink = machine.pressButton("A", 2);
+    const coffee = { name: "Tully's", price: 250, count: 7 };
 
-    // Assert
-    expect(drink.name).to.equal("Green Tea");
+    //Assert
+    expect(drink).to.equal(coffee.name);
+  });
+
+  it("should return the correct change and log type and number of coins to console", () => {
+    // Setup
+    const machine = new VendingMachine();
+
+    // Exercise
+    machine.insertCoin(500);
+    const drink = machine.pressButton("A", 2);
+    const coffee = { name: "Tully's", price: 250, count: 7 };
+
+    //Assert
+    expect(drink).to.equal(coffee.name);
+    // expect();
   });
 });
 
